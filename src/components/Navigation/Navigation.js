@@ -10,6 +10,7 @@ function Navigation(props) {
         clicked={context.sectionActivated.bind(this, "Myday")}
         active={context.activeSection === "Myday" ? true : false}
         icon={<i className="fas fa-bahai"></i>}
+        itemNumber={context.dueTask.length}
         label="My Day"
       />
       <NavigationItem
@@ -17,6 +18,7 @@ function Navigation(props) {
         active={context.activeSection === "Important" ? true : false}
         icon={<i className="far fa-star"></i>}
         label="Important"
+        itemNumber={context.importantTask.length}
       />
       <NavigationItem
         clicked={context.sectionActivated.bind(this, "Planed")}
@@ -28,11 +30,13 @@ function Navigation(props) {
         clicked={context.sectionActivated.bind(this, "AssignToYou")}
         active={context.activeSection === "AssignToYou" ? true : false}
         icon={<i className="fas fa-user"></i>}
+        itemNumber={""}
         label="Assigned to you"
       />
       <NavigationItem
         clicked={context.sectionActivated.bind(this, "Task")}
         icon={<i className="fas fa-home"></i>}
+        itemNumber={""}
         active={context.activeSection === "Task" ? true : false}
         label="Task"
       />

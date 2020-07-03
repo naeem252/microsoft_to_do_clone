@@ -16,6 +16,7 @@ class App extends Component {
       { title: "Home work", important: false },
       { title: "Movies", important: false },
     ],
+    importantTask: [],
     newTaskValue: "",
     showCompletedTask: false,
     addingTask: false,
@@ -102,17 +103,29 @@ class App extends Component {
 
   makeImportantHandler = (index) => {
     const updatedDueTask = [...this.state.dueTask];
+    const updatedImportantTask = [...this.state.importantTask];
     const importantTask = updatedDueTask[index];
+    const ImportantTaskIndex = updatedImportantTask.findIndex(
+      (task) => task.title === importantTask.title
+    );
     if (importantTask.important) {
       importantTask.important = false;
       updatedDueTask.splice(index, 1);
+      updatedImportantTask.splice(ImportantTaskIndex, 1);
       updatedDueTask.push(importantTask);
-      this.setState({ dueTask: updatedDueTask });
+      this.setState({
+        dueTask: updatedDueTask,
+        importantTask: updatedImportantTask,
+      });
     } else {
       importantTask.important = true;
       updatedDueTask.splice(index, 1);
       updatedDueTask.unshift(importantTask);
-      this.setState({ dueTask: updatedDueTask });
+      updatedImportantTask.unshift(importantTask);
+      this.setState({
+        dueTask: updatedDueTask,
+        importantTask: updatedImportantTask,
+      });
     }
   };
   themeOpenHandler = () => {

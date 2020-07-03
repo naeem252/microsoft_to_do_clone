@@ -5,10 +5,9 @@ import Context from "../../store/context";
 function TaskList(props) {
   const context = useContext(Context);
   const dueTask = context.dueTask;
-
   return (
     <ul className="task-list">
-      {dueTask.map((task, index) => {
+      {props.tasks.map((task, index) => {
         return (
           <TaskItem
             clicked={context.taskCompleted.bind(this, index)}

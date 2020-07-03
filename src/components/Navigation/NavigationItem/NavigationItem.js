@@ -6,8 +6,11 @@ const navigationItem = (props) => {
       onClick={props.clicked}
       className={["navigation-item", props.active ? "active" : ""].join(" ")}
     >
-      <span className="navigation-item_icon">{props.icon}</span>
-      {props.label}
+      <div className="item-left">
+        <span className="navigation-item_icon">{props.icon}</span>
+        {props.label}
+      </div>
+      <div className="item-right">{props.itemNumber}</div>
     </li>
   );
 };

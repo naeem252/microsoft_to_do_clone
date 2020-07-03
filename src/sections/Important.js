@@ -14,8 +14,7 @@ class Important extends Component {
       <div className="main-content">
         <MainHeading heading="Important" />
         <div id="items">
-          <TaskList />
-          {completedTaskArrLength > 0 ? <CmpltTaskList /> : null}
+          <TaskList tasks={this.context.importantTask} />
         </div>
         <MainFooterInputForm />
       </div>

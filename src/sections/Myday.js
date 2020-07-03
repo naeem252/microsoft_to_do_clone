@@ -14,7 +14,7 @@ class Main extends Component {
       <div className="main-content">
         <MainHeading heading="Myday" />
         <div id="items">
-          <TaskList />
+          <TaskList tasks={this.context.dueTask} />
           {completedTaskArrLength > 0 ? <CmpltTaskList /> : null}
         </div>
         <MainFooterInputForm />
